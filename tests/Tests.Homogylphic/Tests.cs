@@ -11,7 +11,7 @@ namespace Tests.Homogylphic
         [TestMethod]
         public void Replace_AllHomoglyphsWithBaseCharacter_Success()
         {
-            var pairs = HomoglyphLoader.LoadPairs($"../../../../Data/homoglyphs.csv");
+            var pairs = HomoglyphLoader.LoadPairs($"../../../../homoglyphs.csv");
             var replacer = new HomoglyphReplacer(pairs);
 
             foreach (var pair in pairs)
