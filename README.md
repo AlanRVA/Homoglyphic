@@ -1,4 +1,4 @@
-﻿<img src="http://localhost/homoglyphic/logo.svg" height="75" align="left" />
+﻿<img src="https://github.com/AlanRVA/Homoglyphic/blob/master/logo.svg" height="75" align="left" />
 
 # Homoglyphic
 
