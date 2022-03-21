@@ -4,7 +4,7 @@
 
 <br/>
 
-A .net Standard 2/C# library for normalizing homoglyphs (characters that look identical or similar but have different unicode values) to their base look-alike characters.
+A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their base look-alike characters.
 
 Homoglyphic makes it easy to convert unicode characters to the most common characters they resemble. Useful for simplifying spam/phishing detection, content moderation and scrubbing text used for training ML models.
 
