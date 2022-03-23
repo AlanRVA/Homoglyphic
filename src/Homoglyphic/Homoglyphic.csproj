@@ -3,6 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Alan Jeric</Authors>
+    <Description>A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their base look-alike characters.</Description>
+    <PackageProjectUrl>https://github.com/AlanRVA/Homoglyphic</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/AlanRVA/Homoglyphic</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>homoglyph; homoglyphs</PackageTags>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageIcon>NugetIcon.png</PackageIcon>
   </PropertyGroup>
 
 </Project>
