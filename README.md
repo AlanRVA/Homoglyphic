@@ -3,6 +3,7 @@
 # Homoglyphic
 
 <br/>
+
 [![NuGet](https://img.shields.io/nuget/vpre/homoglyphic.svg)](https://www.nuget.org/packages/homoglyphic/)
 
 A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their common look-alike characters.
