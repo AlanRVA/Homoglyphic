@@ -14,7 +14,7 @@ The list of homogylphys in this project was sourced from https://github.com/code
 
 ## Installing
 
-Install-Package Homoglyphic
+    Install-Package Homoglyphic
 
 ## Usage
 
