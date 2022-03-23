@@ -3,12 +3,17 @@
 # Homoglyphic
 
 <br/>
+[![NuGet](https://img.shields.io/nuget/vpre/homoglyphic.svg)](https://www.nuget.org/packages/homoglyphic/)
 
-A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their base look-alike characters.
+A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their common look-alike characters.
 
 Homoglyphic makes it easy to convert unicode characters to the most common characters they resemble. Useful for simplifying spam/phishing detection, content moderation and scrubbing text used for training ML models.
 
 The list of homogylphys in this project was sourced from https://github.com/codebox/homoglyph/tree/master/raw_data/char_codes.txt
+
+## Installing
+
+Install-Package Homoglyphic
 
 ## Usage
 

@@ -3,14 +3,27 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Alan Jeric</Authors>
-    <Description>A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their base look-alike characters.</Description>
+    <Description>Homoglyphic makes it easy to convert homoglyphs (characters that look identical or similar but have different unicode values) to their common look-alike characters. Useful for content moderation, detecting spam/phishing or normalizing text for ML training.</Description>
     <PackageProjectUrl>https://github.com/AlanRVA/Homoglyphic</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/AlanRVA/Homoglyphic</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>homoglyph; homoglyphs</PackageTags>
+    <PackageTags>homoglyph; homoglyphs; spam detection; phishing detection; content moderation</PackageTags>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageIcon>NugetIcon.png</PackageIcon>
+    <Copyright>Copyright (c) Alan Jeric 2022</Copyright>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\NugetIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
