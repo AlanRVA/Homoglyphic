@@ -1,7 +1,6 @@
 ﻿using Homoglyphic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using static Homoglyphic.HomoglyphReplacer;
+using System.Collections.Generic;
 
 namespace Tests.Homogylphic
 {
@@ -9,17 +8,47 @@ namespace Tests.Homogylphic
     public class Tests
     {
         [TestMethod]
-        public void Replace_AllHomoglyphsWithBaseCharacter_Success()
+        public void Search_WithHomoglyphText_SingleFind_Success()
         {
-            var pairs = HomoglyphLoader.LoadPairs($"../../../../homoglyphs.csv");
-            var replacer = new HomoglyphReplacer(pairs);
+            var sets = HomoglyphLoader.LoadSets($"../../../../homoglyphs.csv");
+            var search = new HomoglyphSearch(sets);
 
-            foreach (var pair in pairs)
-            {
-                var result = replacer.Replace(char.ConvertFromUtf32(pair.HomoglyphUnicodePoint));
+            var result = search.Search("Th1s Is A Test", "This");
 
-                Assert.AreEqual(pair.BaseChar, result);
-            }
+            Assert.IsTrue(result.Count == 1 && result[0].Text == "This");
+        }
+
+        [TestMethod]
+        public void Search_WithHomoglyphText_MultipleFinds_Success()
+        {
+            var sets = HomoglyphLoader.LoadSets($"../../../../homoglyphs.csv");
+            var search = new HomoglyphSearch(sets);
+
+            var result = search.Search("Th1s Is A Test", new List<string>() { "This", "Test" });
+
+            Assert.IsTrue(result.Count == 2 && result[0].Text == "This" && result[0].Text == "Test");
+        }
+
+        [TestMethod]
+        public void Search_WithoutHomoglyphText_SingleFind_Success()
+        {
+            var sets = HomoglyphLoader.LoadSets($"../../../../homoglyphs.csv");
+            var search = new HomoglyphSearch(sets);
+
+            var result = search.Search("This Is A Test", "This");
+
+            Assert.IsTrue(result.Count == 1 && result[0].Text == "This");
+        }
+
+        [TestMethod]
+        public void Search_WithoutHomoglyphText_MultipleFinds_Success()
+        {
+            var sets = HomoglyphLoader.LoadSets($"../../../../homoglyphs.csv");
+            var search = new HomoglyphSearch(sets);
+
+            var result = search.Search("This Is A Test", new List<string>() { "This", "Test" });
+
+            Assert.IsTrue(result.Count == 2 && result[0].Text == "This" && result[0].Text == "Test");
         }
     }
 }

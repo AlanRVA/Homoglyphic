@@ -6,11 +6,11 @@
 
 [![NuGet](https://img.shields.io/nuget/vpre/homoglyphic.svg)](https://www.nuget.org/packages/homoglyphic/)
 
-A .net Standard 2/C# library for converting homoglyphs (characters that look identical or similar but have different unicode values) to their common look-alike characters.
+A .net Standard 2/C# library for working with homoglyphs (characters that look identical or similar but have different unicode values).
 
-Homoglyphic makes it easy to convert unicode characters to the most common characters they resemble. Useful for simplifying spam/phishing detection, content moderation and scrubbing text used for training ML models.
+Homoglyphic makes it easy to find strings in a body of text which contains homoglyphs to bypass regular string matching. Useful for simplifying spam/phishing detection, content moderation and scrubbing text used for training ML models.
 
-The list of homogylphys in this project was sourced from https://github.com/codebox/homoglyph/tree/master/raw_data/char_codes.txt
+This project was inspired by [Homoglyph](https://github.com/codebox/homoglyph) and the list of homogylphys in this project can be [found here](https://github.com/codebox/homoglyph/tree/master/raw_data/char_codes.txt)
 
 ## Installing
 
@@ -18,17 +18,15 @@ The list of homogylphys in this project was sourced from https://github.com/code
 
 ## Usage
 
-Homoglyphic consists of two main classes, the HomoglyphicLoader and HomoglyphicReplacer.
+Homoglyphic consists of two main classes, the HomoglyphicLoader and HomoglyphicSearch.
 
-The HomoglyphicLoader accepts the file path to a CSV file of homoglyphic character sets and returns an array of HomogylphPair ojbects, one for each look-alike character.
+The HomoglyphicLoader accepts the file path to a CSV file of homoglyphic character sets and returns a list of hashsets representing a set of homoglyphs.
 
-The HomogylphPair class contains the base character and the UnicodePoint of a character which resembles the base character.
-
-Once you have your array of HomogylphPairs, you can then use it to create an instance of the HomoglyphicReplacer class which has a single function: Replace, which replaces any look-alike characters in the input string with their base character and returns the normalized version of that string.
+Once you have your list of homoglyphs, you can then use it to create an instance of the HomoglyphSearch class which has a single function: Search. The Search function will accept a string or list of strings and return a SearchResult ojbect for each occurance of a search string found in the string being searched.
 
 ```cs
-var pairs = HomoglyphLoader.LoadPairs("homoglyphs.csv");
-var replacer = new HomoglyphReplacer(pairs);
+var sets = HomoglyphLoader.LoadSets("homoglyphs.csv");
+var search = new HomoglyphSearch(sets);
 
-var normalizedString = replacer.Replace("⟙hiƽ ƽtring contaｉnƽ һomoglyphƽ");
+var result = search.Search("Th1s Is A Test", new List<string>() { "This", "Test" });
 ```
