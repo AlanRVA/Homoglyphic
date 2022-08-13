@@ -14,7 +14,6 @@ namespace Homoglyphic
         public List<SearchResult> Search(string text, List<string> findList)
         {
             var results = new List<SearchResult>();
-            var searchInCodePoints = new CodePoints(text);
 
             foreach (var find in findList)
             {
@@ -44,11 +43,10 @@ namespace Homoglyphic
         {
             for (var i = 0; i < findPoints.Length; i++)
             {
-                var textChar = textPoints[index + i];
-                var findCharUpper = char.ToUpper(char.ConvertFromUtf32(findPoints[i])[0]);
-                var findCharLower = char.ToLower(char.ConvertFromUtf32(findPoints[i])[0]);
+                var textCharPoint = textPoints[index + i];
+                var findChar = char.ConvertFromUtf32(findPoints[i])[0];
 
-                if (!HasCharAtIndex(textChar, findCharUpper) && !HasCharAtIndex(textChar, findCharLower))
+                if ((!HasCharAtIndex(textCharPoint, char.ToUpper(findChar)) && !HasCharAtIndex(textCharPoint, char.ToLower(findChar))))
                     return false;
             }
 
